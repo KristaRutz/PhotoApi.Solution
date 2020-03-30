@@ -17,9 +17,31 @@
 
 ---
 
+<details>
+  <summary>WHAT WE WORKED ON 03.30.20</summary>
+  - **PhotoApi.Solution application**
+  - Scaffolding an API using .NET
+  - Adding CRUD functionality to our photo controller
+  - Using parameters in GET requests to filter results from the database
+  - Matching usernames from POSTs to PUT/DELETE requests
+  - Parsing database objects to match parameter queries (with #hashtags)
+  - Using Data Annotations, including a RegEx data expression
+  - Attempted to integrate many-to-many relationships, before realizing this is better suited to NoSQL databases
+</details>
+
+  <summary>Still left to do...</summary>
+  
+  - Review weekend readings and finish this week's readings
+  - See Shawn's links re: Token-Based Authentication 
+  - Create MVC part of our app
+  - Add token-based authentication
+  - Implement pagination
+  - Explore uploading photos and storing as imgs in database?
+</details>
+
 ## Description
 
-DESCRIPTION HERE
+C#/.NET Core API that allows access to photo URLs. This API includes all CRUD functionality to create, view, update, and delete photos in the database.
 
 ## Installation Requirements
 
@@ -39,7 +61,7 @@ DESCRIPTION HERE
 - As a user, I want to be able to POST photos to a specific tag.
 - As a user, I want to be able to see a list of all tags.
 - As a user, I want to input date parameters and retrieve only photos posted during that timeframe.
-- As a user, I want to be able to PUT and DELETE photos, but only if I posted them. (requiring a user_name param to match the user_name of the author on the message)
+- As a user, I want to be able to PUT and DELETE photos, but only if I posted them.
 
 ## Known Bugs
 
