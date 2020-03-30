@@ -13,8 +13,10 @@ namespace PhotoAPI.Solution.Migrations
                 {
                     PhotoId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Url = table.Column<string>(nullable: true),
-                    Tag = table.Column<string>(nullable: true)
+                    Title = table.Column<string>(maxLength: 100, nullable: false),
+                    Url = table.Column<string>(maxLength: 255, nullable: false),
+                    UserName = table.Column<string>(maxLength: 100, nullable: false),
+                    Hashtags = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

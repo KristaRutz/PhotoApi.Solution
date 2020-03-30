@@ -19,14 +19,8 @@ namespace PhotoApi.Models
     [Required]
     public string UserName { get; set; }
 
-    [StringLength(100)]
-    public string Tag { get; set; }
-
-    // public ICollection<PhotoTag> Tags { get; set; }
-
-    // public Photo()
-    // {
-    //   this.Tags = new HashSet<PhotoTag>();
-    // }
+    [RegularExpression(@"^#[\w|_|\-|#]+",
+      ErrorMessage = "A list of alphanumeric words (hyphens or dashes ok) separated by hashtags: e.g. '#a#tag#like#this#123#half-time#ice_cream' ")]
+    public string Hashtags { get; set; }
   }
 }

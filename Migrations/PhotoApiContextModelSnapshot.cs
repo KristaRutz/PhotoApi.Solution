@@ -21,8 +21,7 @@ namespace PhotoAPI.Solution.Migrations
                     b.Property<int>("PhotoId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Tag")
-                        .HasMaxLength(100);
+                    b.Property<string>("Hashtags");
 
                     b.Property<string>("Title")
                         .IsRequired()

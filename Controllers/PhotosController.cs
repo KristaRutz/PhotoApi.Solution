@@ -19,18 +19,20 @@ namespace PhotoApi.Controllers
 
     // GET api/photos
     [HttpGet]
-    public ActionResult<IEnumerable<Photo>> Get(string title, string tag, string url, string userName)
+    public ActionResult<IEnumerable<Photo>> Get(string title, string hashtag, string url, string userName)
     {
       var query = _db.Photos.AsQueryable();
+
+      if (hashtag != null)
+      {
+        //parse hashtag into array of individual tags
+        //
+        // query = query.Where(entry => entry.Tag == tag);
+      }
 
       if (title != null)
       {
         query = query.Where(entry => entry.Title == title);
-      }
-
-      if (tag != null)
-      {
-        query = query.Where(entry => entry.Tag == tag);
       }
 
       if (url != null)

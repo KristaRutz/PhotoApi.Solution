@@ -8,7 +8,7 @@ using PhotoApi.Models;
 namespace PhotoAPI.Solution.Migrations
 {
     [DbContext(typeof(PhotoApiContext))]
-    [Migration("20200330165641_Initial")]
+    [Migration("20200330220856_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,9 +23,19 @@ namespace PhotoAPI.Solution.Migrations
                     b.Property<int>("PhotoId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Tag");
+                    b.Property<string>("Hashtags");
 
-                    b.Property<string>("Url");
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(100);
+
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasMaxLength(255);
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasMaxLength(100);
 
                     b.HasKey("PhotoId");
 
