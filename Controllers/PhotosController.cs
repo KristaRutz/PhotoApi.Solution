@@ -19,7 +19,7 @@ namespace PhotoApi.Controllers
 
     // GET api/photos
     [HttpGet]
-    public ActionResult<IEnumerable<Photo>> Get(string title, string tag, string url)
+    public ActionResult<IEnumerable<Photo>> Get(string title, string tag, string url, string userName)
     {
       var query = _db.Photos.AsQueryable();
 
@@ -36,6 +36,11 @@ namespace PhotoApi.Controllers
       if (url != null)
       {
         query = query.Where(entry => entry.Url == url);
+      }
+
+      if (userName != null)
+      {
+        query = query.Where(entry => entry.UserName == userName);
       }
 
       return query.ToList();
@@ -60,18 +65,25 @@ namespace PhotoApi.Controllers
     [HttpPut("{id}")]
     public void Put(int id, [FromBody] Photo photo)
     {
-      photo.PhotoId = id;
-      _db.Entry(photo).State = EntityState.Modified;
-      _db.SaveChanges();
+      var photoToUpdate = _db.Photos.FirstOrDefault(entry => entry.PhotoId == id);
+      if (photo.UserName == photoToUpdate.UserName)
+      {
+        photo.PhotoId = id;
+        _db.Entry(photo).State = EntityState.Modified;
+        _db.SaveChanges();
+      }
     }
 
     // Delete api/photos/5
     [HttpDelete("{id}")]
-    public void Delete(int id)
+    public void Delete(int id, [FromBody] string userName)
     {
       var photoToDelete = _db.Photos.FirstOrDefault(entry => entry.PhotoId == id);
-      _db.Photos.Remove(photoToDelete);
-      _db.SaveChanges();
+      if (userName == photoToDelete.UserName)
+      {
+        _db.Photos.Remove(photoToDelete);
+        _db.SaveChanges();
+      }
     }
   }
 }
