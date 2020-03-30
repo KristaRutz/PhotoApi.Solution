@@ -19,16 +19,18 @@
 
 <details>
   <summary>WHAT WE WORKED ON 03.30.20</summary>
-  - **PhotoApi.Solution application**
-  - Scaffolding an API using .NET
-  - Adding CRUD functionality to our photo controller
-  - Using parameters in GET requests to filter results from the database
-  - Matching usernames from POSTs to PUT/DELETE requests
-  - Parsing database objects to match parameter queries (with #hashtags)
-  - Using Data Annotations, including a RegEx data expression
-  - Attempted to integrate many-to-many relationships, before realizing this is better suited to NoSQL databases
-</details>
 
+- **PhotoApi.Solution application**
+- Scaffolding an API using .NET
+- Adding CRUD functionality to our photo controller
+- Using parameters in GET requests to filter results from the database
+- Matching usernames from POSTs to PUT/DELETE requests
+- Parsing database objects to match parameter queries (with #hashtags)
+- Using Data Annotations, including a RegEx data expression
+- Attempted to integrate many-to-many relationships, before realizing this is better suited to NoSQL databases
+  </details>
+
+<details>
   <summary>Still left to do...</summary>
   
   - Review weekend readings and finish this week's readings
