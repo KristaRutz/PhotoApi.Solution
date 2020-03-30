@@ -21,25 +21,54 @@ namespace PhotoApi.Controllers
     [HttpGet]
     public ActionResult<IEnumerable<Photo>> Get(string title, string tag, string url)
     {
-      var query = _db.Photos.AsQueryable();
-
-      if (title != null)
-      {
-        query = query.Where(entry => entry.Title == title);
-      }
+      List<Photo> query = new List<Photo>() { };
 
       if (tag != null)
       {
-        query = query.Where(entry => entry.Tag == tag);
+        // 1. Use the string tag to identify associated TagId, if any.
+        var thisTag = _db.Tags.FirstOrDefault(t => t.Name == tag);
+        var thisTagId = thisTag.TagId;
+
+        // Find all joins with tagId
+        var joinsWithTag = _db.PhotoTag.Where(join => join.TagId == thisTagId);
+
+        // Make list of all PhotoIds from that list of joins
+        List<int> listOfPhotoIds = new List<int>() { };
+        foreach (var join in joinsWithTag)
+        {
+          listOfPhotoIds.Add(join.PhotoId);
+        }
+
+        // Make list of all photos from that list of photoIds
+        foreach (int photoId in listOfPhotoIds)
+        {
+          // get specific photo associated with id using db calls
+          Photo thisPhoto = _db.Photos.FirstOrDefault(p => p.PhotoId == photoId);
+          query.Add(thisPhoto);
+        }
+        query = query.AsQueryable();
+      }
+      else
+      {
+        query = _db.Photos.AsQueryable();
+      }
+
+      // https://dotnettutorials.net/lesson/inner-join-in-linq/
+
+      if (title != null)
+      {
+        query = query.Where(photo => photo.Title == title);
       }
 
       if (url != null)
       {
-        query = query.Where(entry => entry.Url == url);
+        query = query.Where(photo => photo.Url == url);
       }
 
       return query.ToList();
     }
+
+    // -----------------------
 
     // POST api/photos
     [HttpPost]

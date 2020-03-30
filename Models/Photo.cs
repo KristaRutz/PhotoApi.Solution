@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace PhotoApi.Models
 {
   public class Photo
@@ -5,6 +7,12 @@ namespace PhotoApi.Models
     public int PhotoId { get; set; }
     public string Title { get; set; }
     public string Url { get; set; }
-    public string Tag { get; set; }
+
+    public ICollection<PhotoTag> Tags { get; set; }
+
+    public Photo()
+    {
+      this.Tags = new HashSet<PhotoTag>();
+    }
   }
 }
