@@ -16,7 +16,7 @@ namespace PhotoAPI.Solution.Migrations
                     Title = table.Column<string>(maxLength: 100, nullable: false),
                     Url = table.Column<string>(maxLength: 255, nullable: false),
                     UserName = table.Column<string>(maxLength: 100, nullable: false),
-                    Hashtags = table.Column<string>(nullable: true)
+                    TagList = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

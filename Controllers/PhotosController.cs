@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
@@ -19,15 +20,13 @@ namespace PhotoApi.Controllers
 
     // GET api/photos
     [HttpGet]
-    public ActionResult<IEnumerable<Photo>> Get(string title, string hashtag, string url, string userName)
+    public ActionResult<IEnumerable<Photo>> Get(string title, string tag, string url, string userName)
     {
       var query = _db.Photos.AsQueryable();
 
-      if (hashtag != null)
+      if (tag != null)
       {
-        //parse hashtag into array of individual tags
-        //
-        // query = query.Where(entry => entry.Tag == tag);
+        query = query.Where(photo => photo.SearchForTag(tag) == true);
       }
 
       if (title != null)

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -21,6 +22,24 @@ namespace PhotoApi.Models
 
     [RegularExpression(@"^#[\w|_|\-|#]+",
       ErrorMessage = "A list of alphanumeric words (hyphens or dashes ok) separated by hashtags: e.g. '#a#tag#like#this#123#half-time#ice_cream' ")]
-    public string Hashtags { get; set; }
+    public string TagList { get; set; }
+
+    public bool SearchForTag(string tag)
+    {
+      string[] tags = ParseTags();
+      for (int i = 0; i < tags.Length; i++)
+      {
+        if (tags[i] == tag)
+        {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    private string[] ParseTags()
+    {
+      return TagList.Split("#");
+    }
   }
 }
