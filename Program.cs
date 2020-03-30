@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace PhotoAPI.Solution
+namespace PhotoApi
 {
     public class Program
     {
@@ -19,6 +19,6 @@ namespace PhotoAPI.Solution
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+            .UseStartup<Startup>();
     }
 }
