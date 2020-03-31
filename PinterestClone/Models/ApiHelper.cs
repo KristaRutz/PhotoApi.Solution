@@ -20,5 +20,31 @@ namespace PinterestClone.Models
       var response = await client.ExecuteTaskAsync(request);
       return response.Content;
     }
+
+    public static async Task Post(string newPhoto)
+    {
+      RestClient client = new RestClient("http://localhost:5000/api");
+      RestRequest request = new RestRequest($"photos", Method.POST);
+      request.AddHeader("Content-Type", "application/json");
+      request.AddJsonBody(newPhoto);
+      var response = await client.ExecuteTaskAsync(request);
+    }
+
+    public static async Task Put(int id, string newPhoto)
+    {
+      RestClient client = new RestClient("http://localhost:5000/api");
+      RestRequest request = new RestRequest($"photos/{id}", Method.PUT);
+      request.AddHeader("Content-Type", "application/json");
+      request.AddJsonBody(newPhoto);
+      var response = await client.ExecuteTaskAsync(request);
+    }
+
+    public static async Task Delete(int id)
+    {
+      RestClient client = new RestClient("http://localhost:5000/api");
+      RestRequest request = new RestRequest($"photos/{id}", Method.DELETE);
+      request.AddHeader("Content-Type", "applications/json");
+      var response = await client.ExecuteTaskAsync(request);
+    }
   }
 }

@@ -29,5 +29,45 @@ namespace PinterestClone.Controllers
       var thisPhoto = Photo.GetDetails(id);
       return View(thisPhoto);
     }
+
+    public IActionResult Create()
+    {
+      return View();
+    }
+
+    [HttpPost]
+    public IActionResult Create(Photo photo)
+    {
+      Console.WriteLine("Created!___________________________________________________");
+      Console.WriteLine(photo);
+      Photo.Post(photo);
+      return RedirectToAction("Index");
+    }
+
+    public IActionResult Edit(int id)
+    {
+      var thisPhoto = Photo.GetDetails(id);
+      return View(thisPhoto);
+    }
+
+    [HttpPost]
+    public IActionResult Edit(Photo photo)
+    {
+      Photo.Put(photo);
+      return RedirectToAction("Details", new { id = photo.PhotoId });
+    }
+
+    public IActionResult Delete(int id)
+    {
+      var thisPhoto = Photo.GetDetails(id);
+      return View(thisPhoto);
+    }
+
+    [HttpPost, ActionName("Delete")]
+    public IActionResult DeleteConfirmed(int id)
+    {
+      Photo.Delete(id);
+      return RedirectToAction("Index");
+    }
   }
 }

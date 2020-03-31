@@ -1,0 +1,28 @@
+@{
+    ViewData["Title"] = "Photo Details";
+}
+
+@model PinterestClone.Models.Photo
+
+<div class="text-center">
+    <h1 class="display-4">Post a Photo</h1>
+</div>
+
+<div class="photo-form">
+  <form asp-controller="Photos" asp-action="Create" method="post">
+    <label for="Title">Title</label>
+    <input type="text" id="Title" asp-for="Title" required/>
+
+    <label for="Url">URL</label>
+    <input type="text" id="Url" asp-for="Url" required/>
+
+    <label for="taglist">Hashtags</label>
+    <small class="form-text text-muted">Enter tags, separated by # (e.g. #dog#cute)</small>
+    <input type="text" id="TagList" asp-for="TagList" required/>
+
+    <input type="hidden" asp-for="UserName" value="FIXED_USERNAME"/>
+    
+    <input type="submit" value="Post your photo" class="btn" />
+    <small class="form-text text-muted"><a asp-action="Index">Cancel</a></small>
+  </form>
+</div>
