@@ -47,6 +47,7 @@ namespace PhotoApi.Controllers
       //////////// PAGINATION
       int maxPageSize = 15;
       int pageSize = 5;
+      //add page limit
 
       int pageNumber = (page > 0) ? page : 1;
       if (size > 0)

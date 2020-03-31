@@ -37,15 +37,16 @@
   - Reviewed weekend readings and finish this week's readings
   - Styled our app to act like pinterest and show real photos
   - Finished CRUD functionality with MVC
+  - Built pagination into the api photosController
     </details>
 
 <details>
   <summary>Still left to do...</summary>
   
   - (PinterestClone) Create MVC part of our app
+    - Finish front end implementation of pagination, add page limit so it doesn't break when page is > contents of query, pass variables to apiHelper call to change page number and search for tags
     - Users/account login
     - Search based on tags/username?
-  - Implement pagination
   - Swagger documentation
   - (PhotoApi) Add token-based authentication
 </details>
