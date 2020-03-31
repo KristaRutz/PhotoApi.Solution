@@ -9,22 +9,21 @@
 </div>
 
 <div class="photo-form">
-  @using (Html.BeginForm())
-  {
+  <form asp-controller="Photos" asp-action="Edit" method="post">
     <label for="Title">Title</label>
-    <input type="text" id="Title" asp-for="Title" value="@Model.Title"/>
+    <input type="text" id="Title" asp-for="Title" placeholder="@Model.Title"/>
 
     <label for="Url">URL</label>
-    <input type="text" id="Url" asp-for="Url" value="@Model.Url"/>
+    <input type="text" id="Url" asp-for="Url" placeholder="@Model.Url"/>
 
     <label for="taglist">Hashtags</label>
     <small class="form-text text-muted">Enter tags, separated by #</small>
-    <input type="text" id="TagList" asp-for="TagList" value="@Model.TagList"/>
+    <input type="text" id="TagList" asp-for="TagList" placeholder="@Model.TagList"/>
 
+    <input type="hidden" asp-for="UserName" value="@Model.UserName"/>
+    <input type="hidden" asp-for="PhotoId" value="@Model.PhotoId"/>
 
-    <input type="hidden" asp-for="UserName" value="FIXED_USERNAME"/>
-
-    <input type="submit" value="Post your photo" class="btn" />
+    <input type="submit" value="Edit your photo" class="btn" />
     <small class="form-text text-muted"><a asp-action="Index">Cancel</a></small>
-  }
+  </form>
 </div>

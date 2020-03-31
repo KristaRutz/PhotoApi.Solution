@@ -38,8 +38,6 @@ namespace PinterestClone.Models
     public static void Post(Photo photo)
     {
       string jsonPhoto = JsonConvert.SerializeObject(photo);
-      Console.WriteLine("------------------------------------------------------");
-      Console.WriteLine(jsonPhoto);
       var apiCallTask = ApiHelper.Post(jsonPhoto);
     }
 

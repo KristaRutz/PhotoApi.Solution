@@ -38,8 +38,6 @@ namespace PinterestClone.Controllers
     [HttpPost]
     public IActionResult Create(Photo photo)
     {
-      Console.WriteLine("Created!___________________________________________________");
-      Console.WriteLine(photo);
       Photo.Post(photo);
       return RedirectToAction("Index");
     }

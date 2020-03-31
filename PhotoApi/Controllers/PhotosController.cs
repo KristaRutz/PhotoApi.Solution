@@ -66,25 +66,18 @@ namespace PhotoApi.Controllers
     [HttpPut("{id}")]
     public void Put(int id, [FromBody] Photo photo)
     {
-      var photoToUpdate = _db.Photos.FirstOrDefault(entry => entry.PhotoId == id);
-      if (photo.UserName == photoToUpdate.UserName)
-      {
-        photo.PhotoId = id;
-        _db.Entry(photo).State = EntityState.Modified;
-        _db.SaveChanges();
-      }
+      photo.PhotoId = id;
+      _db.Entry(photo).State = EntityState.Modified;
+      _db.SaveChanges();
     }
 
     // Delete api/photos/5
     [HttpDelete("{id}")]
-    public void Delete(int id, [FromBody] string userName)
+    public void Delete(int id)
     {
       var photoToDelete = _db.Photos.FirstOrDefault(entry => entry.PhotoId == id);
-      if (userName == photoToDelete.UserName)
-      {
-        _db.Photos.Remove(photoToDelete);
-        _db.SaveChanges();
-      }
+      _db.Photos.Remove(photoToDelete);
+      _db.SaveChanges();
     }
   }
 }

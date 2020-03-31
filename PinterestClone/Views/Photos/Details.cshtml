@@ -12,4 +12,7 @@
   <img src="@Model.Url" alt="@Model.Title" />
   <h6>@Model.TagList</h6>
   <h6>@Model.UserName</h6>
+  
+  
+  <a class="btn btn-light" asp-route-id="@Model.PhotoId" asp-action="Edit">Edit this post</a>
 </div>
