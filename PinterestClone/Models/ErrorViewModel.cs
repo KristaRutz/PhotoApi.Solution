@@ -1,6 +1,6 @@
 using System;
 
-namespace FlickrClone.Models
+namespace PinterestClone.Models
 {
     public class ErrorViewModel
     {

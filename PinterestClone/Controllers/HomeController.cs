@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using FlickrClone.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using PinterestClone.Models;
 
-namespace FlickrClone.Controllers
+namespace PinterestClone.Controllers
 {
     public class HomeController : Controller
     {
