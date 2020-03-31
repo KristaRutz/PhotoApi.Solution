@@ -1,0 +1,13 @@
+@model PinterestClone.Models.Photo
+
+<div class="text-center">
+  <h1>Are you sure you want to delete this?</h1>
+</div>
+
+<div class="content">
+  <h4>@Model.Title</h4>
+  <form asp-controller="Photos" asp-action="Delete" method="post">
+    <input type="hidden" value="@Model.PhotoId" asp-fpr="PhotoId">
+    <input type="submit" value="Delete" class="btn"/>
+  </form>
+</div>

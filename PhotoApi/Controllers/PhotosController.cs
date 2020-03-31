@@ -20,7 +20,7 @@ namespace PhotoApi.Controllers
 
     // GET api/photos
     [HttpGet]
-    public ActionResult<IEnumerable<Photo>> Get(string title, string tag, string url, string userName)
+    public ActionResult<IEnumerable<Photo>> Get(string title, string tag, string url, string userName, int page, int size)
     {
       var query = _db.Photos.AsQueryable();
 
@@ -44,7 +44,17 @@ namespace PhotoApi.Controllers
         query = query.Where(entry => entry.UserName == userName);
       }
 
-      return query.ToList();
+      //////////// PAGINATION
+      int maxPageSize = 15;
+      int pageSize = 5;
+
+      int pageNumber = (page > 0) ? page : 1;
+      if (size > 0)
+      {
+        pageSize = (size > maxPageSize) ? maxPageSize : size;
+      }
+
+      return query.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
     }
 
     // POST api/photos

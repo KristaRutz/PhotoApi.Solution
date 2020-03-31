@@ -36,22 +36,18 @@
 - **PhotoApi.Solution application**
   - Reviewed weekend readings and finish this week's readings
   - Styled our app to act like pinterest and show real photos
-  - Finished the home and photos index routes
-  - Finished the photos detail route
+  - Finished CRUD functionality with MVC
     </details>
 
 <details>
   <summary>Still left to do...</summary>
   
   - (PinterestClone) Create MVC part of our app
-    - Create/post photos
-    - Update/edit photos
-    - Destroy/delete photos
-    - Users and authentication
+    - Users/account login
     - Search based on tags/username?
-  - See Shawn's links re: Token-Based Authentication 
-  - (PhotoApi) Add token-based authentication
   - Implement pagination
+  - Swagger documentation
+  - (PhotoApi) Add token-based authentication
 </details>
 
 - PinterestClone format
@@ -61,9 +57,6 @@
   - "Home": photos index - shows all photos
     - API GET - getAll()
   - "You/yourname": photos index with parameter passed - API GET - getAll(userName = "my_name")
-    Further actions --
-  - "Photo_1": photos detail with ID param
-    - API G
 
 ## Description
 

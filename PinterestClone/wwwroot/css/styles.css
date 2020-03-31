@@ -14,10 +14,14 @@ a:hover {
   flex-wrap: wrap;
 }
 
-.photo-details {
+.content {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.btn {
+  background-color: steelblue;
 }
