@@ -1,0 +1,21 @@
+@{
+    ViewData["Title"] = "Photos";
+}
+@using System.Collections.Generic;
+@model List<PinterestClone.Models.Photo>
+
+<div class="text-center">
+    <h1 class="display-4">PHOTOS</h1>
+</div>
+
+<div class="photo-container">
+  @foreach (Photo photo in Model)
+  {
+  <a href="/Photos/Details/@(photo.PhotoId)">
+    <img src="@photo.Url" alt="@photo.Title" />
+    <h6>@photo.TagList</h6>
+    <h6>@photo.UserName</h6>
+  </a>
+  <br>
+  }
+</div>

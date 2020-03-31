@@ -1,4 +1,4 @@
-# Photo API
+# Photo API and Pinterest Clone MVC Website
 
 #### C#/.NET Core API that allows access to photo URLs. Current version: 03.30.20
 
@@ -40,6 +40,17 @@
   - Implement pagination
   - Explore uploading photos and storing as imgs in database?
 </details>
+
+- PinterestClone format
+  Navbar --
+  - "PinterestClone": index home - show a landing page/splash page
+    - no API call
+  - "Home": photos index - shows all photos
+    - API GET - getAll()
+  - "You/yourname": photos index with parameter passed - API GET - getAll(userName = "my_name")
+    Further actions --
+  - "Photo_1": photos detail with ID param
+    - API G
 
 ## Description
 

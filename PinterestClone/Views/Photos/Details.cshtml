@@ -1,0 +1,15 @@
+@{
+    ViewData["Title"] = "Photo Details";
+}
+@using System.Collections.Generic;
+@model PinterestClone.Models.Photo
+
+<div class="text-center">
+    <h1 class="display-4">@Model.Title</h1>
+</div>
+
+<div class="photo-details">
+  <img src="@Model.Url" alt="@Model.Title" />
+  <h6>@Model.TagList</h6>
+  <h6>@Model.UserName</h6>
+</div>
