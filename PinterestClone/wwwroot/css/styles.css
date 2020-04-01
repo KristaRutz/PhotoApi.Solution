@@ -25,3 +25,9 @@ a:hover {
 .btn {
   background-color: steelblue;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -24,6 +24,14 @@ namespace PinterestClone.Controllers
       return View(allPhotos);
     }
 
+    // public IActionResult Index(int page)
+    // {
+    //   // Overload of index where it's passed a page number
+    //   var allPhotos = Photo.GetPhotos(page);
+    //   ViewBag.PageNumber = page;
+    //   return View(allPhotos);
+    // }
+
     public IActionResult Details(int id)
     {
       var thisPhoto = Photo.GetDetails(id);

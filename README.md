@@ -1,8 +1,8 @@
 # Photo API and Pinterest Clone MVC Website
 
-#### C#/.NET Core API that allows access to photo URLs. Current version: 03.31.20
+#### C#/.NET Core API that allows access to photo URLs. Current version: 04.01.20
 
-#### By Krista Rutz, Sarah "Sasa" Schwartz
+#### By Krista Rutz, Sarah "Sasa" Schwartz, Adela Darmansyah
 
 ---
 
@@ -34,20 +34,30 @@
   <summary>WHAT WE WORKED ON 03.31.20</summary>
 
 - **PhotoApi.Solution application**
+
   - Reviewed weekend readings and finish this week's readings
   - Styled our app to act like pinterest and show real photos
   - Finished CRUD functionality with MVC
   - Built pagination into the api photosController
+
+      </details>
+
+      <details>
+    <summary>WHAT WE WORKED ON 04.1.20</summary>
+
+- **PhotoApi.Solution application**
+  - WHAT DID WE DO?
     </details>
 
 <details>
   <summary>Still left to do...</summary>
   
   - (PinterestClone) Create MVC part of our app
-    - Finish front end implementation of pagination, add page limit so it doesn't break when page is > contents of query, pass variables to apiHelper call to change page number and search for tags
+    - Finish front end implementation of pagination, pass variables to apiHelper call to change page number and search for tags
     - Users/account login
     - Search based on tags/username?
   - Swagger documentation
+  - API versioning (Adela?)
   - (PhotoApi) Add token-based authentication
 </details>
 

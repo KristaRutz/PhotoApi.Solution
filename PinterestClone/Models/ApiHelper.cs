@@ -7,18 +7,16 @@ namespace PinterestClone.Models
   {
     public static async Task<string> GetAll()
     {
-      // PASS IN VARIABLE TO CHANGE PAGE PARAMETERS
       RestClient client = new RestClient("http://localhost:5000/api");
       RestRequest request = new RestRequest($"photos", Method.GET);
       var response = await client.ExecuteTaskAsync(request);
       return response.Content;
     }
 
-    // public static async Task<string> GetSearch()
+    // public static async Task<string> GetPage(int page)
     // {
-    //   // PASS IN VARIABLE TO CHANGE THE TAG PARAMETERS
     //   RestClient client = new RestClient("http://localhost:5000/api");
-    //   RestRequest request = new RestRequest($"photos?size=15", Method.GET);
+    //   RestRequest request = new RestRequest($"photos?page={page}", Method.GET);
     //   var response = await client.ExecuteTaskAsync(request);
     //   return response.Content;
     // }

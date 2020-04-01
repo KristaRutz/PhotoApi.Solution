@@ -15,6 +15,7 @@ namespace PinterestClone.Models
 
     public static List<Photo> GetPhotos()
     {
+      // Gets ALL photos
       var apiCallTask = ApiHelper.GetAll();
       var result = apiCallTask.Result;
 
@@ -23,6 +24,18 @@ namespace PinterestClone.Models
 
       return photoList;
     }
+
+    // public static List<Photo> GetPhotos(int page)
+    // {
+    //   // Overload of GetPhotos that allows a page number to be passed
+    //   var apiCallTask = ApiHelper.GetPage(page);
+    //   var result = apiCallTask.Result;
+
+    //   JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
+    //   List<Photo> photoList = JsonConvert.DeserializeObject<List<Photo>>(jsonResponse.ToString());
+
+    //   return photoList;
+    // }
 
     public static Photo GetDetails(int id)
     {

@@ -45,17 +45,45 @@ namespace PhotoApi.Controllers
       }
 
       //////////// PAGINATION
-      int maxPageSize = 15;
-      int pageSize = 5;
-      //add page limit
+      int maxPageSize = 100;
+      int pageSize = 20; //defaults to 20 items per page
 
-      int pageNumber = (page > 0) ? page : 1;
+      int pageNumber = (page > 0) ? page : 1; //defaults to page 1
       if (size > 0)
       {
         pageSize = (size > maxPageSize) ? maxPageSize : size;
       }
 
       return query.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+    }
+
+    // GET api/photos/count
+    [HttpGet("count")]
+    public ActionResult<int> CountPhotos(string title, string tag, string url, string userName)
+    {
+      var query = _db.Photos.AsQueryable();
+
+      if (tag != null)
+      {
+        query = query.Where(photo => photo.SearchForTag(tag) == true);
+      }
+
+      if (title != null)
+      {
+        query = query.Where(entry => entry.Title == title);
+      }
+
+      if (url != null)
+      {
+        query = query.Where(entry => entry.Url == url);
+      }
+
+      if (userName != null)
+      {
+        query = query.Where(entry => entry.UserName == userName);
+      }
+
+      return query.ToList().Count();
     }
 
     // POST api/photos

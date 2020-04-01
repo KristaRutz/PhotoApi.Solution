@@ -12,7 +12,6 @@ namespace PhotoApi.Models
     [Required]
     public string Title { get; set; }
 
-    [StringLength(255)]
     [Required]
     public string Url { get; set; }
 
