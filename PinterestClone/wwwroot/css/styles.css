@@ -14,6 +14,12 @@ a:hover {
   flex-wrap: wrap;
 }
 
+.pagination {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
 .content {
   width: 100%;
   display: flex;
@@ -30,4 +36,8 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.current-page {
+  margin: 0 15px;
 }

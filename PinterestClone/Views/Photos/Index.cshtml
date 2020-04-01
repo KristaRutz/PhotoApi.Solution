@@ -5,30 +5,30 @@
 @model List<PinterestClone.Models.Photo>
 
 @{
-  int page = ViewBag.Page + 1;
+  int nextPage = ViewBag.Page + 1;
+  int prevPage = ViewBag.Page - 1;
 }
 
 <div class="text-center">
     <h1 class="display-4">PHOTOS</h1>
 </div>
 
-
-<a asp-action="Index" asp-route-id="@(page)">Go to page @(page)</a>
-
-@* current page = @ViewBag.PhotoCount / @Model.Count * @ViewBag.Page *@
-
-
 <div class="pagination">
-
-  
-  <a href="#"> < </a>
-
-  <p>Showing results 1-@Model.Count of @ViewBag.PhotoCount</p> 
-
-  <a href="#"> > </a>
-
+  <div class='page-nav'>
+    <p class="showing-results">Showing results @((ViewBag.Page - 1) * (ViewBag.Size) + 1) - @((ViewBag.Page - 1) * (ViewBag.Size) + Model.Count) of @ViewBag.PhotoCount</p > 
+  </div>
+  <div class='page-nav'>
+    @if (ViewBag.Page > 1)
+    {
+      <a  asp-action="Index" asp-route-id="@(prevPage)"> &lt Previous </a>
+    }
+    <span class="current-page">Page @ViewBag.Page</span>
+    @if (ViewBag.Page <= ViewBag.PhotoCount/ViewBag.Size)
+    {
+      <a asp-action="Index" asp-route-id="@(nextPage)">Next &gt </a>
+    }
+  </div>
 </div>
-
 
 <div class="photo-container">
   @foreach (Photo photo in Model)
