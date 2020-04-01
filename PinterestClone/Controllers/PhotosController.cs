@@ -26,30 +26,12 @@ namespace PinterestClone.Controllers
       var allPhotos = Photo.GetPhotos(null, null, null, null, size, page);
 
       ViewBag.Size = int.Parse(size);
-      ViewBag.Page = int.Parse(page);
+      ViewBag.Page = id;
       ViewBag.PhotoCount = Photo.GetCount(null, null, null, null);
 
       return View(allPhotos);
     }
 
-    //[HttpGet("/index/{page}")]
-    // [Http("page/{page}")]
-    // public IActionResult Page(int page)
-    // {
-    //   string size = "20";
-    //   string pageStr = $"{page}";
-
-    //   var allPhotos = Photo.GetPhotos(null, null, null, null, size, "2");
-
-    //   ViewBag.Size = int.Parse(size);
-    //   ViewBag.Page = 2;
-
-    //   ViewBag.PhotoCount = Photo.GetCount(null, null, null, null);
-
-    //   return View();
-    // }
-
-    // localhost:5000/photos/{id}
     public IActionResult Details(int id)
     {
       var thisPhoto = Photo.GetDetails(id);

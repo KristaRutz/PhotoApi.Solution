@@ -40,23 +40,26 @@
   - Finished CRUD functionality with MVC
   - Built pagination into the api photosController
 
-      </details>
+</details>
 
-      <details>
-    <summary>WHAT WE WORKED ON 04.1.20</summary>
+<details>
+  <summary>WHAT WE WORKED ON 04.1.20</summary>
 
 - **PhotoApi.Solution application**
-  - WHAT DID WE DO?
+  - Added ability to count the number of photo objects returned from API
+  - Access this count from our MVC and display it dynamically in the view
+  - Add pagination functionality to our MVC Client
     </details>
 
 <details>
   <summary>Still left to do...</summary>
   
   - (PinterestClone) Create MVC part of our app
-    - Finish front end implementation of pagination, pass variables to apiHelper call to change page number and search for tags
-    - Users/account login
+    - Finish pagination buttons on index
     - Search based on tags/username?
-  - Swagger documentation
+    - Users/account login (remove "fixed" username with photo posts)
+  - Swagger/any documentation
+  
   - API versioning (Adela?)
   - (PhotoApi) Add token-based authentication
 </details>
