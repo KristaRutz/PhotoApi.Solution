@@ -13,13 +13,13 @@ namespace PinterestClone.Models
       return response.Content;
     }
 
-    // public static async Task<string> GetPage(int page)
-    // {
-    //   RestClient client = new RestClient("http://localhost:5000/api");
-    //   RestRequest request = new RestRequest($"photos?page={page}", Method.GET);
-    //   var response = await client.ExecuteTaskAsync(request);
-    //   return response.Content;
-    // }
+    public static async Task<string> GetCount()
+    {
+      RestClient client = new RestClient("http://localhost:5000/api");
+      RestRequest request = new RestRequest($"photos/count", Method.GET);
+      var response = await client.ExecuteTaskAsync(request);
+      return response.Content;
+    }
 
     public static async Task<string> Get(int id)
     {
