@@ -1,0 +1,44 @@
+@{
+    ViewData["Title"] = "Photos";
+}
+@using System.Collections.Generic;
+@model List<PinterestClone.Models.Photo>
+
+@{
+  int nextPage = ViewBag.Page + 1;
+  int prevPage = ViewBag.Page - 1;
+}
+
+<div class="text-center">
+    <h1 class="display-4">SEARCH RESULTS</h1>
+</div>
+
+<div class="pagination">
+  <div class='page-nav'>
+    <p class="showing-results">Showing results @((ViewBag.Page - 1) * (ViewBag.Size) + 1) - @((ViewBag.Page - 1) * (ViewBag.Size) + Model.Count) of @ViewBag.PhotoCount</p > 
+  </div>
+  <div class='page-nav'>
+    @if (ViewBag.Page > 1)
+    {
+      <a asp-action="Search" asp-route-id="@prevPage" asp-route-Tag="@ViewBag.tag"> &lt Previous </a>
+    }
+    <span class="current-page">Page @ViewBag.Page</span>
+    @if (ViewBag.Page <= ViewBag.PhotoCount/ViewBag.Size)
+    {
+        <a asp-action="Search" asp-route-id="@nextPage" asp-route-Tag="@ViewBag.tag"> Next &gt</a>
+    }
+  </div>
+</div>
+
+<div class="photo-container">
+  @foreach (Photo photo in Model)
+  {
+  <a href="/Photos/Details/@(photo.PhotoId)">
+    <img src="@photo.Url" alt="@photo.Title" />
+    <h6>@photo.TagList</h6>
+    <h6>@photo.UserName</h6>
+    <h6>@photo.PhotoId</h6>
+  </a>
+  <br>
+  }
+</div>

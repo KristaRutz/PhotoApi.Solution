@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PinterestClone.Models;
+using PinterestClone.ViewModels;
 
 namespace PinterestClone.Controllers
 {
@@ -32,6 +33,33 @@ namespace PinterestClone.Controllers
       return View(allPhotos);
     }
 
+    [HttpGet]
+    public IActionResult Search(SearchViewModel search, int id = 1)
+    {
+      string size = "5";
+      string page = $"{id}";
+
+      var allPhotos = Photo.GetPhotos(null, search.Tag, null, null, size, page);
+
+      ViewBag.Size = int.Parse(size);
+      ViewBag.Page = id;
+      ViewBag.PhotoCount = Photo.GetCount(null, search.Tag, null, null);
+      ViewBag.Tag = search.Tag;
+      ViewBag.Search = search;
+      return View(allPhotos);
+    }
+
+    [HttpPost]
+    public IActionResult Search(string tag)
+    {
+      SearchViewModel search = new SearchViewModel
+      {
+        Tag = tag
+      };
+      return RedirectToAction("Search", search);
+    }
+
+    //"/photos/1"
     public IActionResult Details(int id)
     {
       var thisPhoto = Photo.GetDetails(id);

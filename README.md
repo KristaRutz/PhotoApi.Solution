@@ -55,7 +55,6 @@
   <summary>Still left to do...</summary>
   
   - (PinterestClone) Create MVC part of our app
-    - Finish pagination buttons on index
     - Search based on tags/username?
     - Users/account login (remove "fixed" username with photo posts)
   - Swagger/any documentation
