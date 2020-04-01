@@ -5,18 +5,18 @@ namespace PinterestClone.Models
 {
   class ApiHelper
   {
-    public static async Task<string> GetAll()
+    public static async Task<string> GetAll(string username, string tag, string title, string url, string size, string page)
     {
       RestClient client = new RestClient("http://localhost:5000/api");
-      RestRequest request = new RestRequest($"photos", Method.GET);
+      RestRequest request = new RestRequest($"photos?title={title}&username={username}&url={url}&tag={tag}&size={size}&page={page}", Method.GET);
       var response = await client.ExecuteTaskAsync(request);
       return response.Content;
     }
 
-    public static async Task<string> GetCount()
+    public static async Task<string> GetCount(string username, string tag, string title, string url)
     {
       RestClient client = new RestClient("http://localhost:5000/api");
-      RestRequest request = new RestRequest($"photos/count", Method.GET);
+      RestRequest request = new RestRequest($"photos/count?title={title}&username={username}&url={url}&tag={tag}", Method.GET);
       var response = await client.ExecuteTaskAsync(request);
       return response.Content;
     }

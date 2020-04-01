@@ -13,9 +13,9 @@ namespace PinterestClone.Models
     public string UserName { get; set; }
     public string TagList { get; set; }
 
-    public static List<Photo> GetPhotos()
+    public static List<Photo> GetPhotos(string username, string tag, string title, string url, string page, string size)
     {
-      var apiCallTask = ApiHelper.GetAll();
+      var apiCallTask = ApiHelper.GetAll(username, tag, title, url, page, size);
       var result = apiCallTask.Result;
 
       JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
@@ -25,12 +25,10 @@ namespace PinterestClone.Models
     }
 
     // Gets Count of all photos returned
-    public static int GetCount()
+    public static int GetCount(string username, string tag, string title, string url)
     {
-      var apiCallTask = ApiHelper.GetCount();
+      var apiCallTask = ApiHelper.GetCount(username, tag, title, url);
       var result = int.Parse(apiCallTask.Result);
-
-      Console.WriteLine(result);
       return result;
     }
 

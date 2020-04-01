@@ -4,16 +4,26 @@
 @using System.Collections.Generic;
 @model List<PinterestClone.Models.Photo>
 
+@{
+  int page = ViewBag.Page + 1;
+}
+
 <div class="text-center">
     <h1 class="display-4">PHOTOS</h1>
 </div>
+
+
+<a asp-action="Index" asp-route-id="@(page)">Go to page @(page)</a>
+
+@* current page = @ViewBag.PhotoCount / @Model.Count * @ViewBag.Page *@
+
 
 <div class="pagination">
 
   
   <a href="#"> < </a>
 
-  <p>Showing results 1-20 of @ViewBag.PhotoCount</p> 
+  <p>Showing results 1-@Model.Count of @ViewBag.PhotoCount</p> 
 
   <a href="#"> > </a>
 
@@ -27,6 +37,7 @@
     <img src="@photo.Url" alt="@photo.Title" />
     <h6>@photo.TagList</h6>
     <h6>@photo.UserName</h6>
+    <h6>@photo.PhotoId</h6>
   </a>
   <br>
   }
