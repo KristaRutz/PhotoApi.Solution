@@ -59,7 +59,6 @@ namespace PinterestClone.Controllers
       return RedirectToAction("Search", search);
     }
 
-    //"/photos/1"
     public IActionResult Details(int id)
     {
       var thisPhoto = Photo.GetDetails(id);

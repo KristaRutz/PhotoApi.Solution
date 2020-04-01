@@ -49,14 +49,15 @@
   - Added ability to count the number of photo objects returned from API
   - Access this count from our MVC and display it dynamically in the view
   - Add pagination functionality to our MVC Client
+  - Added search by tag with compatibility with pagination
     </details>
 
 <details>
   <summary>Still left to do...</summary>
   
   - (PinterestClone) Create MVC part of our app
-    - Search based on tags/username?
     - Users/account login (remove "fixed" username with photo posts)
+    - Index for a specific user's photos?
   - Swagger/any documentation
   
   - API versioning (Adela?)
