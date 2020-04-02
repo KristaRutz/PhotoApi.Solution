@@ -1,11 +1,10 @@
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace PinterestClone.Models
 {
-  public class PinterestCloneContext : DbContext
+  public class PinterestCloneContext : IdentityDbContext<ApplicationUser>
   {
-    public DbSet<ApplicationUser> Users { get; set; }
-
     public PinterestCloneContext(DbContextOptions options) : base(options) { }
   }
 }

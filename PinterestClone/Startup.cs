@@ -4,11 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Identity;
 using PinterestClone.Models;
 
 namespace PinterestClone
@@ -32,6 +32,10 @@ namespace PinterestClone
       services.AddEntityFrameworkMySql()
         .AddDbContext<PinterestCloneContext>(options => options
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
+
+      services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<PinterestCloneContext>()
+                .AddDefaultTokenProviders();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +45,8 @@ namespace PinterestClone
       app.UseStaticFiles();
 
       app.UseDeveloperExceptionPage();
+
+      app.UseAuthentication();
 
       app.UseMvc(routes =>
       {

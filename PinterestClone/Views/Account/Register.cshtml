@@ -1,0 +1,23 @@
+@using PinterestClone.ViewModels
+@model RegisterViewModel
+
+<h1>Sign Up</h1>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post))
+{
+  <div class="form-group">
+    @Html.LabelFor(user => user.Email)
+    <input class="form-control" asp-for="Email" required>
+  </div>
+  <div class="form-group">
+    @Html.LabelFor(user => user.Password)
+    <input class="form-control" asp-for="Password" required>
+  </div>
+  <div class="form-group">
+    @Html.LabelFor(user => user.ConfirmPassword)
+    <input class="form-control" asp-for="ConfirmPassword" required>
+  </div>
+  <input class="btn btn-default" type="submit" value="Register">
+  <small class="form-text text-muted">Already have an account? <a asp-action="Login">Sign in.</a></small>
+}
+
