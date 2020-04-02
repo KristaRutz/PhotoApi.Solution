@@ -21,14 +21,16 @@
   <summary>WHAT WE WORKED ON 03.30.20</summary>
 
 - **PhotoApi.Solution application**
-- Scaffolding an API using .NET
-- Adding CRUD functionality to our photo controller
-- Using parameters in GET requests to filter results from the database
-- Matching usernames from POSTs to PUT/DELETE requests
-- Parsing database objects to match parameter queries (with #hashtags)
-- Using Data Annotations, including a RegEx data expression
-- Attempted to integrate many-to-many relationships, before realizing this is better suited to NoSQL databases
-  </details>
+
+  - Scaffolding an API using .NET
+  - Adding CRUD functionality to our photo controller
+  - Using parameters in GET requests to filter results from the database
+  - Matching usernames from POSTs to PUT/DELETE requests
+  - Parsing database objects to match parameter queries (with #hashtags)
+  - Using Data Annotations, including a RegEx data expression
+  - Attempted to integrate many-to-many relationships, before realizing this is better suited to NoSQL databases
+
+</details>
 
 <details>
   <summary>WHAT WE WORKED ON 03.31.20</summary>
@@ -46,11 +48,21 @@
   <summary>WHAT WE WORKED ON 04.1.20</summary>
 
 - **PhotoApi.Solution application**
+
   - Added ability to count the number of photo objects returned from API
   - Access this count from our MVC and display it dynamically in the view
   - Add pagination functionality to our MVC Client
   - Added search by tag with compatibility with pagination
-    </details>
+
+</details>
+
+<details>
+  <summary>WHAT KRISTA WORKED ON 04.2.20</summary>
+
+- **PhotoApi.Solution application**
+  - User authentication
+
+</details>
 
 <details>
   <summary>Still left to do...</summary>
