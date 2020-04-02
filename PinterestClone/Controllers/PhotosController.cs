@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PinterestClone.Models;
 using PinterestClone.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PinterestClone.Controllers
 {
+  [Authorize]
   public class PhotosController : Controller
   {
     private readonly ILogger<HomeController> _logger;
@@ -19,6 +21,7 @@ namespace PinterestClone.Controllers
       _logger = logger;
     }
 
+    [AllowAnonymous]
     public IActionResult Index(int id = 1)
     {
       string size = "5";
@@ -33,6 +36,7 @@ namespace PinterestClone.Controllers
       return View(allPhotos);
     }
 
+    [AllowAnonymous]
     [HttpGet]
     public IActionResult Search(SearchViewModel search, int id = 1)
     {
@@ -49,6 +53,7 @@ namespace PinterestClone.Controllers
       return View(allPhotos);
     }
 
+    [AllowAnonymous]
     [HttpPost]
     public IActionResult Search(string tag)
     {
@@ -59,6 +64,7 @@ namespace PinterestClone.Controllers
       return RedirectToAction("Search", search);
     }
 
+    [AllowAnonymous]
     public IActionResult Details(int id)
     {
       var thisPhoto = Photo.GetDetails(id);

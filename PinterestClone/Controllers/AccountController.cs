@@ -33,28 +33,16 @@ namespace PinterestClone.Controllers
     [HttpPost]
     public async Task<ActionResult> Register(RegisterViewModel model)
     {
-      Console.WriteLine("Registration submitted ---------------------------------------------------");
       var user = new ApplicationUser { UserName = model.Email };
-
-      Console.WriteLine($"Inputted email: {model.Email}");
-      Console.WriteLine($"Inputted password: {model.Password}");
-      Console.WriteLine($"Inputted 'confirm' password: {model.ConfirmPassword}");
-      Console.WriteLine(user);
-
-      Console.WriteLine($"User username: {user.UserName} ---------------------------------------------------");
       IdentityResult result = await _userManager.CreateAsync(user, model.Password);
       Console.WriteLine(result);
 
       if (result.Succeeded)
       {
-        Console.WriteLine("Registration succeeded ---------------------------------------------------");
-
         return RedirectToAction("Index");
       }
       else
       {
-        Console.WriteLine("Registration failed ---------------------------------------------------");
-
         return View();
       }
     }
