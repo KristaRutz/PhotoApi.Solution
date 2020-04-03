@@ -60,7 +60,13 @@
   <summary>WHAT KRISTA WORKED ON 04.2.20</summary>
 
 - **PhotoApi.Solution application**
-  - User authentication
+  - Added Identity and configured EF and MySQL to PinterestClone project
+  - User authentication & authorization required for C-U-D but not R
+  - Account controller and views
+  - Some style changes to forms and image gallery
+- **Other**
+  - Team week meetings
+  - troubleshooting MySQL and .Net Core versioning
 
 </details>
 
