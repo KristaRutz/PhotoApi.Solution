@@ -15,7 +15,7 @@
 
 <div class="pagination">
   <div class='page-nav'>
-    <p class="showing-results">Showing results @((ViewBag.Page - 1) * (ViewBag.Size) + 1) - @((ViewBag.Page - 1) * (ViewBag.Size) + Model.Count) of @ViewBag.PhotoCount</p > 
+    <p class="showing-results">Showing results @((ViewBag.Page - 1) * (ViewBag.Size) + 1) to @((ViewBag.Page - 1) * (ViewBag.Size) + Model.Count) of @ViewBag.PhotoCount</p > 
   </div>
   <div class='page-nav'>
     @if (ViewBag.Page > 1)

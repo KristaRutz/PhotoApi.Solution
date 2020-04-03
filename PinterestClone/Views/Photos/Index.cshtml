@@ -15,7 +15,7 @@
 
 <div class="pagination">
   <div class='page-nav'>
-    <p class="showing-results">Showing results @((ViewBag.Page - 1) * (ViewBag.Size) + 1) - @((ViewBag.Page - 1) * (ViewBag.Size) + Model.Count) of @ViewBag.PhotoCount</p > 
+    <p class="showing-results">Photos @((ViewBag.Page - 1) * (ViewBag.Size) + 1) to @((ViewBag.Page - 1) * (ViewBag.Size) + Model.Count) of @ViewBag.PhotoCount</p > 
   </div>
   <div class='page-nav'>
     @if (ViewBag.Page > 1)
@@ -30,8 +30,8 @@
   </div>
 </div>
 
-<div class="photo-container">
-  @foreach (Photo photo in Model)
+<div class="img-grid-row">
+  @* @foreach (Photo photo in Model)
   {
   <a href="/Photos/Details/@(photo.PhotoId)">
     <img src="@photo.Url" alt="@photo.Title" />
@@ -40,5 +40,61 @@
     <h6>@photo.PhotoId</h6>
   </a>
   <br>
+  } *@
+
+  @for (int i = 0; i < Model.Count; i = i * 4)
+  {
+    <div class="img-column">
+      <a href="/Photos/Details/@(Model[i].PhotoId)">
+      <h6>@Model[i].PhotoId</h6>
+      </a>
+      <img src="@Model[i].Url" alt="@Model[i].Title" />
+      <br>
+    </div>
+  }
+  @for (int i = 0; i < Model.Count; i++)
+  {
+    <div class="img-column">
+      @if (i % 4 == 1)
+      {
+        <a href="/Photos/Details/@(Model[i].PhotoId)">
+          <img src="@Model[i].Url" alt="@Model[i].Title" />
+        @* <h6>@photo.TagList</h6>
+        <h6>@photo.UserName</h6>
+        <h6>@photo.PhotoId</h6> *@
+        </a>
+        <br>
+      }
+    </div>
+  }
+  @for (int i = 0; i < Model.Count; i++)
+  {
+    <div class="img-column">
+      @if (i % 4 == 2)
+      {
+        <a href="/Photos/Details/@(Model[i].PhotoId)">
+          <img src="@Model[i].Url" alt="@Model[i].Title" />
+        @* <h6>@photo.TagList</h6>
+        <h6>@photo.UserName</h6>
+        <h6>@photo.PhotoId</h6> *@
+        </a>
+        <br>
+      }
+    </div>
+  }
+  @for (int i = 0; i < Model.Count; i++)
+  {
+    <div class="img-column">
+      @if (i % 4 == 3)
+      {
+        <a href="/Photos/Details/@(Model[i].PhotoId)">
+          <img src="@Model[i].Url" alt="@Model[i].Title" />
+        @* <h6>@photo.TagList</h6>
+        <h6>@photo.UserName</h6>
+        <h6>@photo.PhotoId</h6> *@
+        </a>
+        <br>
+      }
+    </div>
   }
 </div>

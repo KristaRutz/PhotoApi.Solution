@@ -24,7 +24,7 @@ namespace PinterestClone.Controllers
     [AllowAnonymous]
     public IActionResult Index(int id = 1)
     {
-      string size = "5";
+      string size = "25";
       string page = $"{id}";
 
       var allPhotos = Photo.GetPhotos(null, null, null, null, size, page);

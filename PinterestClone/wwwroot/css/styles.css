@@ -1,6 +1,6 @@
 img {
-  max-height: 100px;
-  max-width: 100px;
+  max-height: 400px;
+  max-width: 300px;
 }
 
 a:hover {
@@ -42,3 +42,33 @@ form {
 .current-page {
   margin: 0 15px;
 }
+
+.img-grid-row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.img-column {
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+.img-column a {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.pic {
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+/* @media screen and (max-width: 800px) {
+  .img-column {
+    flex: 50%;
+    max-width: 50%;
+  }
+} */
